@@ -50,11 +50,8 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
 
 $kernel = $app->make(Illuminate\Contracts\Http\Kernel::class);
 
-
-$multiLanguage = require_once __DIR__.'/../config/multiLanguage.php';
-
 $response = $kernel->handle(
-    $request = Kiberzauras\MultiLanguage\Request::capture($multiLanguage)
+    $request = Kiberzauras\MultiLanguage\Request::capture()
     /*$request = Illuminate\Http\Request::capture()*/
 );
 
