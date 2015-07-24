@@ -19,22 +19,25 @@ class Request extends LaravelRequest
      */
     public static function capture()
     {
-        $params = require_once config_path() . DIRECTORY_SEPARATOR . 'multiLanguage.php';
+        $config_url = config_path() . DIRECTORY_SEPARATOR . 'multiLanguage.php';
+        if (file_exists($config_url)) {
+            $params = require_once $config_url;
 
-        if (!empty($params['array'])) {
-            $uri = trim($_SERVER['REQUEST_URI'], '/');
-            $lang = strstr($uri, '/', true);
-            if (in_array($lang, $params['array'])) {
-                // for accessing /en/page/page
-                $_SERVER['REQUEST_URI'] = strstr($uri, '/');
-                define('Language', $lang);
-            } elseif (in_array($uri, $params['array'])) {
-                // for accessing /, /en, and /en/ pages
-                $_SERVER['REQUEST_URI'] = '/';
-                define('Language', $uri);
+            if (!empty($params['array'])) {
+                $uri = trim($_SERVER['REQUEST_URI'], '/');
+                $lang = strstr($uri, '/', true);
+                if (in_array($lang, $params['array'])) {
+                    // for accessing /en/page/page
+                    $_SERVER['REQUEST_URI'] = strstr($uri, '/');
+                    define('Language', $lang);
+                } elseif (in_array($uri, $params['array'])) {
+                    // for accessing /, /en, and /en/ pages
+                    $_SERVER['REQUEST_URI'] = '/';
+                    define('Language', $uri);
+                }
             }
+            defined('Language') || define('Language', !empty($params['default']) ? $params['default'] : 'en');
         }
-        defined('Language') || define('Language', !empty($params['default'])?$params['default']:'en');
 
         static::enableHttpMethodParameterOverride();
         return static::createFromBase(SymfonyRequest::createFromGlobals());
