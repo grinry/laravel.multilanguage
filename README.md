@@ -28,19 +28,14 @@ In /public/index.php file change these lines:
     $response = $kernel->handle(
         $request = Illuminate\Http\Request::capture()
     );
-    
 With these lines:
 
-    $multiLanguage = require_once __DIR__.'/../config/multiLanguage.php';
-    
     $response = $kernel->handle(
         $request = Kiberzauras\MultiLanguage\Request::capture($multiLanguage)
     );
-    
 Add new provider (/config/app.php providers[]):
-    
+
     Kiberzauras\MultiLanguage\MultiLanguageServiceProvider::class
-    
 Thats it, your application now can be accessed with url like these:
 
     example.com
@@ -49,17 +44,13 @@ Thats it, your application now can be accessed with url like these:
     example.com/en/
     example.com/admin/page/etc
     example.com/en/admin/page/etc
-    
 Now, try creating hyperlinks:
-    
+
     <?= URL::to('main/index'); ?> //or
     <?= url('main/index'); ?> // will create route to /en/main/index (it will use default language as prefix)
     <?= URL::to('main/index', ['language'=>'ru']) // will create create route/change default language to /ru/main/index
-    
-
-    
 You can access current language like before:
-    
+
     App::getLocale();
 
 ### License
