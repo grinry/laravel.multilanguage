@@ -1,0 +1,20 @@
+{
+  "name": "kiberzauras/laravel.multilanguage",
+  "description": "Multilanguage support for Laravel 5.1 routes",
+  "keywords": ["laravel", "multilanguage", "kiberzauras"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Rytis Grincevicius",
+      "email": "rytis@kiberzauras.com"
+    }
+  ],
+  "require": {
+    "php": ">=5.5.9"
+  },
+  "autoload": {
+    "psr-4": {
+      "Kiberzauras\\MultiLanguage\\": ""
+    }
+  }
+}
