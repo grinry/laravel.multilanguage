@@ -31,7 +31,7 @@ In /public/index.php file change these lines:
 With these lines:
 
     $response = $kernel->handle(
-        $request = Kiberzauras\MultiLanguage\Request::capture($multiLanguage)
+        $request = Kiberzauras\MultiLanguage\Request::capture()
     );
 Add new provider (/config/app.php providers[]):
 
