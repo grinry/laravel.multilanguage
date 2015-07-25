@@ -36,10 +36,10 @@ class UrlGenerator extends LaravelUrlGenerator
             return $path;
         }
         if (array_key_exists('language', $extra)) {
-            $path = $extra['language'] . '/' . $path;
+            $path = $extra['language'] . '/' . trim($path, '/');
             unset($extra['language']);
         } else {
-            $path = App::getLocale() . '/'. $path;
+            $path = App::getLocale() . '/' . trim($path, '/');
         }
         $scheme = $this->getScheme($secure);
 
