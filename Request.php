@@ -19,24 +19,24 @@ class Request extends LaravelRequest
      */
     public static function capture()
     {
-        $config_url = config_path() . DIRECTORY_SEPARATOR . 'multiLanguage.php';
+        $config_url = config_path() . DIRECTORY_SEPARATOR . 'multilanguage.json';
         if (file_exists($config_url)) {
-            $params = require_once $config_url;
+            $params = json_decode(file_get_contents($config_url));
 
-            if (!empty($params['array'])) {
+            if (!empty($params->enabled)) {
                 $uri = trim($_SERVER['REQUEST_URI'], '/');
                 $lang = strstr($uri, '/', true);
-                if (in_array($lang, $params['array'])) {
+                if (in_array($lang, $params->enabled)) {
                     // for accessing /en/page/page
                     $_SERVER['REQUEST_URI'] = strstr($uri, '/');
                     define('Language', $lang);
-                } elseif (in_array($uri, $params['array'])) {
+                } elseif (in_array($uri, $params->enabled)) {
                     // for accessing /, /en, and /en/ pages
                     $_SERVER['REQUEST_URI'] = '/';
                     define('Language', $uri);
                 }
             }
-            defined('Language') || define('Language', !empty($params['default']) ? $params['default'] : 'en');
+            defined('Language') || define('Language', !empty($params->default) ? $params->default : 'en');
         }
 
         static::enableHttpMethodParameterOverride();

@@ -50,8 +50,8 @@ class MultiLanguageServiceProvider extends ServiceProvider
 
             $url = new UrlGenerator(
                 $routes, $app->rebinding(
-                'request', $this->requestRebinder()
-            )
+                    'request', $this->requestRebinder()
+                )
             );
 
             $url->setSessionResolver(function () {
