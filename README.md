@@ -15,13 +15,10 @@ At first you need to install our package:
 
     composer require "kiberzauras/laravel.multilanguage"
 
-Then you need to create new file under /config/multiLanguage.php with this content:
+Then you need to create new file under /config/multilanguage.json with this content:
 
-    <?php
-    return [
-        'default'=>'en', // Default language, if not found in request
-        'array'=>['en', 'ru', 'fr', 'lt', 'en_us'] // All available languages for your project goes here
-    ];
+    {"default":"en","enabled":["en","ru","lt"]}
+    
 
 In /public/index.php file change these lines:
 
