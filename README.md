@@ -46,6 +46,8 @@ Now, try creating hyperlinks:
     <?= URL::to('main/index'); ?> //or
     <?= url('main/index'); ?> // will create route to /en/main/index (it will use default language as prefix)
     <?= URL::to('main/index', ['language'=>'ru']) // will create create route/change default language to /ru/main/index
+    <?= route('profile'); ?>
+    <?= route('profile', ['language'=>'ru']); ?>
 You can access current language like before:
 
     App::getLocale();
