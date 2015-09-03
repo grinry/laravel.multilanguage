@@ -56,4 +56,31 @@ class UrlGenerator extends LaravelUrlGenerator
 
         return $this->trimUrl($root, $path, $tail);
     }
+
+    /**
+     * @param \Illuminate\Routing\Route $route
+     * @param mixed $parameters
+     * @param bool $absolute
+     * @return string
+     */
+    protected function toRoute($route, $parameters, $absolute)
+    {
+        $parameters = $this->formatParameters($parameters);
+
+        $language = App::getLocale();
+        if (array_key_exists('language', $parameters)) {
+            $language = $parameters['language'];
+            unset($parameters['language']);
+        }
+
+        $domain = $this->getRouteDomain($route, $parameters);
+
+        $uri = strtr(rawurlencode($this->addQueryString($this->trimUrl(
+            $root = $this->replaceRoot($route, $domain, $parameters),
+            $language,
+            $this->replaceRouteParameters($route->uri(), $parameters)
+        ), $parameters)), $this->dontEncode);
+
+        return $absolute ? $uri : '/'.ltrim(str_replace($root, '', $uri), '/');
+    }
 }
