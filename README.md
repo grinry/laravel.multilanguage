@@ -8,6 +8,7 @@
 This package will help you to easy create multilanguage routes on top of your single language website. With this package
  you will be able to access your website with these routes example.com, example.com/en, example.com/en/page and etc. and
  there is no need to change your routes.php file!
+ 
 !Note: will not work if you use microsoft IIS as your server. I will try to solve this issue soon.
 
 ### Installation
