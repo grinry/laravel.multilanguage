@@ -1,6 +1,8 @@
 <?php
 /**
  * @author Rytis Grincevicius <rytis@kiberzauras.com>
+ * @link http://www.github.com/kiberzauras/laravel.multilanguage
+ * @version 2.0.2
  * @license MIT
  */
 namespace Kiberzauras\MultiLanguage;
