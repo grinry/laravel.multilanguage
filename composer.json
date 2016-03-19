@@ -1,9 +1,9 @@
 {
   "name": "kiberzauras/laravel.multilanguage",
-  "description": "Multilanguage support for Laravel 5.1 routes",
+  "description": "Multilanguage support for Laravel 5.1+ routes",
   "keywords": ["laravel", "multilanguage", "kiberzauras"],
   "license": "MIT",
-  "time": "2015-11-30",
+  "time": "2016.03.19",
   "authors": [
     {
       "name": "Rytis Grincevicius",
