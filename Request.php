@@ -33,7 +33,7 @@ class Request extends LaravelRequest
                 elseif (array_key_exists('HTTP_X_REWRITE_URL', $_SERVER))
                     self::parseServerVars('HTTP_X_REWRITE_URL', $params);
 
-                elseif ($_SERVER['UNENCODED_URL'] && $_SERVER['IIS_WasUrlRewritten'] == 1)
+                elseif (!empty($_SERVER['UNENCODED_URL']) && $_SERVER['IIS_WasUrlRewritten'] == 1)
                     self::parseServerVars('UNENCODED_URL', $params);
 
                 elseif ($_SERVER['REQUEST_URI'])
