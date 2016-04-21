@@ -1,5 +1,6 @@
 ## Multilanguage for Laravel 5.1
 
+[![Made for Laravel 5](https://img.shields.io/badge/laravel-5.2-green.svg)](https://laravel.com/)
 [![Total Downloads](https://poser.pugx.org/kiberzauras/laravel.multilanguage/d/total.svg)](https://packagist.org/packages/kiberzauras/laravel.multilanguage)
 [![Latest Stable Version](https://poser.pugx.org/kiberzauras/laravel.multilanguage/v/stable.svg)](https://packagist.org/packages/kiberzauras/laravel.multilanguage)
 [![Latest Unstable Version](https://poser.pugx.org/kiberzauras/laravel.multilanguage/v/unstable.svg)](https://packagist.org/packages/kiberzauras/laravel.multilanguage)
