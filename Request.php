@@ -2,7 +2,7 @@
 /**
  * @author Rytis Grincevicius <rytis@kiberzauras.com>
  * @link http://www.github.com/kiberzauras/laravel.multilanguage
- * @version 2.0.2
+ * @version 2.0.4
  * @license MIT
  */
 namespace Kiberzauras\MultiLanguage;
@@ -33,15 +33,14 @@ class Request extends LaravelRequest
                 elseif (array_key_exists('HTTP_X_REWRITE_URL', $_SERVER))
                     self::parseServerVars('HTTP_X_REWRITE_URL', $params);
 
-                elseif (!empty($_SERVER['UNENCODED_URL']) && $_SERVER['IIS_WasUrlRewritten'] == 1)
+                elseif (array_key_exists('UNENCODED_URL', $_SERVER) && $_SERVER['IIS_WasUrlRewritten'] == 1)
                     self::parseServerVars('UNENCODED_URL', $params);
 
-                elseif ($_SERVER['REQUEST_URI'])
+                elseif (array_key_exists('REQUEST_URI', $_SERVER))
                     self::parseServerVars('REQUEST_URI', $params);
 
-                elseif ($_SERVER['ORIG_PATH_INFO'])
+                elseif (array_key_exists('ORIG_PATH_INFO', $_SERVER))
                     self::parseServerVars('ORIG_PATH_INFO', $params);
-
             }
             defined('Language') || define('Language', !empty($params->default) ? $params->default : 'en');
         }
