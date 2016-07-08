@@ -53,6 +53,12 @@ You can access current language like before:
 
     App::getLocale();
 
+### Notes
+
+For assets link, use asset('img/foo.jpg'); or secure_asset('foo/bar.zip', $title, $attributes = []);
+instead of url('img/foo.jpg');
+https://laravel.com/docs/5.1/helpers#method-asset
+
 ### License
 
 The Laravel Multilanguage is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
