@@ -42,7 +42,7 @@ class MultiLanguageServiceProvider extends ServiceProvider
      */
     protected function registerUrlGenerator()
     {
-        $this->app['url'] = $this->app->share(function ($app) {
+        $this->app->singleton('url', function ($app) {
             $routes = $app['router']->getRoutes();
 
             // The URL generator needs the route collection that exists on the router.
