@@ -55,8 +55,8 @@ You can access current language like before:
 
 ### Notes
 
-For assets link, use asset('img/foo.jpg'); or secure_asset('foo/bar.zip', $title, $attributes = []);
-instead of url('img/foo.jpg');
+For assets link, use `asset('img/foo.jpg');` or `secure_asset('foo/bar.zip', $title, $attributes = []);`
+instead of `url('img/foo.jpg');`
 https://laravel.com/docs/5.1/helpers#method-asset
 
 ### License
