@@ -1,3 +1,6 @@
+This package is not maintained anymore, please use [mcamara/laravel-localization](https://github.com/mcamara/laravel-localization) instead!
+
+
 ## Multilanguage for Laravel 5.1
 
 [![Made for Laravel 5](https://img.shields.io/badge/laravel-5.2-green.svg)](https://laravel.com/)
